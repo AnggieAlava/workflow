@@ -42,11 +42,10 @@ app.get('/issues', async (req, res) => {
 
     const filteredData = response.data.map((issue) => ({
       repository: issue.repository.full_name,
-      title: issue.title,
-      state: issue.state,
+      issue: issue.title,
+      closed: issue.state,
       id: issue.id,
-      issue_link: issue.html_url,
-      repository_url: issue.repository_url,
+      url: issue.html_url,
     }));
 
     for (const issue of filteredData) {
